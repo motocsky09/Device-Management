@@ -1,0 +1,48 @@
+<div class="container" *ngIf="device">
+  <div class="header">
+    <h1>Device Details</h1>
+    <div>
+      <button (click)="goBack()" class="action-button">← Back</button>
+      <button (click)="editDevice()" class="action-button">Edit</button>
+    </div>
+  </div>
+
+  <div class="details-card">
+    <div class="detail-row">
+      <span class="label">Name</span>
+      <span class="detail">{{ device.name }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Manufacturer</span>
+      <span class="detail">{{ device.manufacturer }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Type</span>
+      <span class="detail">{{ device.type }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Operating System</span>
+      <span class="detail">{{ device.operatingSystem }} {{ device.osVersion }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Processor</span>
+      <span class="detail">{{ device.processor }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">RAM</span>
+      <span class="detail">{{ device.ram }} GB</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Description</span>
+      <span class="detail">{{ device.description }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Assigned To</span>
+      <span class="detail">{{ assignedUser ? assignedUser.name : 'Unassigned' }}</span>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!device">
+  <p>Loading...</p>
+</div>

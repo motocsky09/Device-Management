@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ isEditMode ? 'Edit Device' : 'Add Device' }}</h1>
+    <button (click)="goBack()" class="action-button">← Back</button>
+  </div>
+
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div class="form">
+    <div class="form-group">
+      <label class="label">Name</label>
+      <input class="input" [(ngModel)]="device.name" placeholder="Device name" />
+    </div>
+
+    <div class="form-group">
+      <label class="label">Manufacturer</label>
+      <input class="input" [(ngModel)]="device.manufacturer" placeholder="Manufacturer" />
+    </div>
+
+    <div class="form-group">
+      <label class="label">Type</label>
+      <select class="input" [(ngModel)]="device.type">
+        <option value="">-- Select type --</option>
+        <option value="phone">Phone</option>
+        <option value="tablet">Tablet</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="label">Operating System</label>
+      <input class="input" [(ngModel)]="device.operatingSystem" placeholder="e.g. iOS, Android" />
+    </div>
+
+    <div class="form-group">
+      <label class="label">OS Version</label>
+      <input class="input" [(ngModel)]="device.osVersion" placeholder="e.g. 18" />
+    </div>
+
+    <div class="form-group">
+      <label class="label">Processor</label>
+      <input class="input" [(ngModel)]="device.processor" placeholder="e.g. A19 Pro" />
+    </div>
+
+    <div class="form-group">
+      <label class="label">RAM (GB)</label>
+      <input class="input" type="number" [(ngModel)]="device.ram" placeholder="e.g. 12" />
+    </div>
+
+    <div class="form-group">
+      <label class="label">Description</label>
+      <textarea class="input" [(ngModel)]="device.description" placeholder="Device description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="label">Assigned To</label>
+      <select class="input" [(ngModel)]="device.assignedUserId">
+        <option [ngValue]="null">-- Unassigned --</option>
+        <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+      </select>
+    </div>
+
+    <button (click)="save()" class="action-button">{{ isEditMode ? 'Update' : 'Create' }}</button>
+  </div>
+</div>
