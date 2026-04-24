@@ -55,5 +55,31 @@ namespace Server.Controllers
             _deviceRepository.DeleteDevice(id);
             return Ok();
         }
+        
+        [HttpPut]
+        [Route("AssignDevice")]
+        public ActionResult AssignDevice(string deviceId, string userId)
+        {
+            var device = _deviceRepository.GetDeviceById(deviceId);
+            if (device == null) return NotFound();
+            if (device.AssignedUserId != null) return BadRequest("Device is already assigned.");
+    
+            device.AssignedUserId = userId;
+            _deviceRepository.UpdateDevice(device);
+            return Ok(device);
+        }
+
+        [HttpPut]
+        [Route("UnassignDevice")]
+        public ActionResult UnassignDevice(string deviceId, string userId)
+        {
+            var device = _deviceRepository.GetDeviceById(deviceId);
+            if (device == null) return NotFound();
+            if (device.AssignedUserId != userId) return BadRequest("You can only unassign your own device.");
+    
+            device.AssignedUserId = null;
+            _deviceRepository.UpdateDevice(device);
+            return Ok(device);
+        }
     }
 }

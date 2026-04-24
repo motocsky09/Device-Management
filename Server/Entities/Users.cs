@@ -14,5 +14,9 @@ namespace Entities
         public string Role { get; set; } = string.Empty;
         [BsonElement("location")]
         public string Location { get; set; } = string.Empty;
+        [BsonElement("email")]
+        public string Email { get; set; } = string.Empty;
+        [BsonElement("passwordHash")]
+        public string PasswordHash { get; set; } = string.Empty;
     }
 }

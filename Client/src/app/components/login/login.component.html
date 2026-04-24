@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="login-card">
+    <h1>Login</h1>
+
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <div class="auth">
+      <label class="auth-label">Email</label>
+      <input class="auth-input" type="email" [(ngModel)]="credentials.email" placeholder="Enter your email" />
+    </div>
+
+    <div class="auth">
+      <label class="auth-label">Password</label>
+      <input class="auth-password" type="password" [(ngModel)]="credentials.password" placeholder="Enter your password" />
+    </div>
+
+    <div class="bottom-row">
+      <button (click)="login()" class="action-button">Login</button>
+      <p class="bottom-text">Don't have an account?</p>
+      <span (click)="goToRegister()" class="register-link-text">Register here</span>
+    </div>
+
+  </div>
+</div>

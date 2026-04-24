@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="register-card">
+    <h1>Register</h1>
+
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+
+    <div class="auth">
+      <label class="auth-label">Name</label>
+      <input class="auth-input" [(ngModel)]="data.name" placeholder="Enter your name" />
+    </div>
+
+    <div class="auth">
+      <label class="auth-label">Email</label>
+      <input class="auth-input" type="email" [(ngModel)]="data.email" placeholder="Enter your email" />
+    </div>
+
+    <div class="auth">
+      <label class="auth-label">Password</label>
+      <input class="auth-input" type="password" [(ngModel)]="data.password" placeholder="Enter your password" />
+    </div>
+
+    <div class="auth">
+      <label class="auth-label">Location</label>
+      <input class="auth-input" [(ngModel)]="data.location" placeholder="e.g. Cluj-Napoca" />
+    </div>
+
+    <div class="bottom-row">
+      <button (click)="register()" class="action-button">Create account</button>
+      <span (click)="goToLogin()" class="register-link-text">Login here</span>
+    </div>
+  </div>
+</div>

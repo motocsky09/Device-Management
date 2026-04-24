@@ -69,3 +69,12 @@
 /Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/runtimes/osx/native/libmongocrypt.dylib
 /Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll
 /Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/andreimotoc/Documents/device_management/Server/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

@@ -1,7 +1,11 @@
 <div class="container">
   <div class="header">
     <h1>Device Management</h1>
-    <button (click)="createDevice()" class="add-button">+ Add Device</button>
+    <div>
+      <span class="user-name">Hello, {{ currentUserName }}</span>
+      <button (click)="createDevice()" class="action-button">+ Add Device</button>
+      <button (click)="logout()" class="action-button">Logout</button>
+    </div>
   </div>
 
   <table class="table">
@@ -28,6 +32,8 @@
           <button (click)="viewDetails(device.id)" class="action-button">View</button>
           <button (click)="editDevice(device.id)" class="action-button">Edit</button>
           <button (click)="deleteDevice(device.id)" class="action-button">Delete</button>
+          <button *ngIf="!device.assignedUserId" (click)="assignDevice(device.id)" class="action-button">Assign to me</button>
+          <button *ngIf="isAssignedToMe(device)" (click)="unassignDevice(device.id)" class="action-button">Unassign</button>
         </td>
       </tr>
     </tbody>

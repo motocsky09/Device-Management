@@ -4,11 +4,11 @@
   padding: 20px;
 }
 .action-button{
-	background-color: #4CAF50;
-	color: black;
+	background-color: #381932;
+	color: #FFF3E6;
 	padding: 10px 20px;
 	margin: 5px;
-	border: 1px solid black;
+	border: 1px solid #FFF3E6;
 	border-radius: 4px;
 	cursor: pointer;
 }
@@ -27,7 +27,7 @@
 }
 
 .input {
-  border: 1px solid black;
+  border: 1px solid #381932;
   padding: 5px;
   width: 100%;
   max-width: 400px;
@@ -36,7 +36,9 @@
 .label{
 	font-weight: bold;
 	margin-right: 10px;
-	border: 1px solid black;
+	border: 1px solid #FFF3E6;
+	color: #FFF3E6;
+	background-color: #381932;
 	padding: 5px;
 }
 .header{
