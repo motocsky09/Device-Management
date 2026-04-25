@@ -79,6 +79,28 @@ export class DeviceFormComponent implements OnInit {
     }
   }
 
+  isGenerating = false;
+
+generateDescription(): void {
+  if (!this.device.name || !this.device.manufacturer || !this.device.type ||
+      !this.device.operatingSystem || !this.device.processor || !this.device.ram) {
+    this.errorMessage = 'Please fill in the device specs before generating a description.';
+    return;
+  }
+
+  this.isGenerating = true;
+  this.deviceService.generateDescription(this.device).subscribe({
+    next: (result) => {
+      this.device.description = result.description;
+      this.isGenerating = false;
+    },
+    error: () => {
+      this.errorMessage = 'Failed to generate description.';
+      this.isGenerating = false;
+    }
+  });
+}
+
   goBack(): void {
     this.router.navigate(['/devices']);
   }

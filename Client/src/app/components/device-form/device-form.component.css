@@ -33,6 +33,33 @@
   max-width: 400px;
   box-sizing: border-box;
 }
+.description-group {
+  align-items: start;
+}
+
+.description-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.generate-button {
+  background-color: #1a5276;
+  color: #FFF3E6;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  align-self: center;
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .label{
 	font-weight: bold;
 	margin-right: 10px;

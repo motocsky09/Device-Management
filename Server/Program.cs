@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using Server.Repositories;
 using System.Text;
+using Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +47,8 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
+
+builder.Services.AddHttpClient<OllamaService>();
 
 var app = builder.Build();
 

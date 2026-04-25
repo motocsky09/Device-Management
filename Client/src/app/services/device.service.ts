@@ -38,4 +38,7 @@ export class DeviceService {
   unassignDevice(deviceId: string, userId: string): Observable<Device> {
     return this.http.put<Device>(`${this.apiUrl}/UnassignDevice?deviceId=${deviceId}&userId=${userId}`, {});
   }
+  generateDescription(device: Device): Observable<{ description: string }> {
+  return this.http.post<{ description: string }>(`${this.apiUrl}/GenerateDescription`, device);
+  }
 }

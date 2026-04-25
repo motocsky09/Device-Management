@@ -18,10 +18,13 @@
 	margin: 10px;
 	border-radius: 4px;
 }
-.detail-row{
-	margin: 10px;
-	padding: 10px;
-	border-radius: 4px;
+.detail-row {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: start;
 }
 .label{
 	font-weight: bold;
@@ -30,6 +33,11 @@
 	color: #FFF3E6;
 	background-color: #381932;
 	padding: 5px;
+}
+.detail-description{
+	
+	max-width: 400px;
+	box-sizing: border-box;
 }
 .header{
 	display: flex;

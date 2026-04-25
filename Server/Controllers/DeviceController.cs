@@ -1,6 +1,7 @@
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Server.Repositories;
+using Server.Services;
 
 namespace Server.Controllers
 {
@@ -9,10 +10,12 @@ namespace Server.Controllers
     public class DeviceController : ControllerBase
     {
         private readonly IDeviceRepository _deviceRepository;
+        private readonly OllamaService _ollamaService;
 
-        public DeviceController(IDeviceRepository deviceRepository)
+        public DeviceController(IDeviceRepository deviceRepository, OllamaService ollamaService)
         {
             _deviceRepository = deviceRepository;
+            _ollamaService = ollamaService;
         }
 
         [HttpGet]
@@ -80,6 +83,21 @@ namespace Server.Controllers
             device.AssignedUserId = null;
             _deviceRepository.UpdateDevice(device);
             return Ok(device);
+        }
+        
+        [HttpPost]
+        [Route("GenerateDescription")]
+        public async Task<ActionResult> GenerateDescription([FromBody] Device device)
+        {
+            var description = await _ollamaService.GenerateDeviceDescription(
+                device.Name,
+                device.Manufacturer,
+                device.Type,
+                device.OperatingSystem,
+                device.Processor,
+                device.Ram
+            );
+            return Ok(new { description });
         }
     }
 }
