@@ -8,6 +8,16 @@
     </div>
   </div>
 
+  <div class="search-bar">
+  <input 
+    [(ngModel)]="searchQuery" 
+    placeholder="Search by name, manufacturer, processor or RAM..."
+    (keyup.enter)="searchDevices()"
+  />
+  <button (click)="searchDevices()" class="action-button">Search</button>
+  <button (click)="clearSearch()" class="action-button">Clear</button>
+</div>
+
   <table class="table">
     <thead>
       <tr>

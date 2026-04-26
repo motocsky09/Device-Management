@@ -69,6 +69,23 @@ export class DeviceListComponent implements OnInit {
     this.router.navigate(['/devices/new']);
   }
 
+  searchQuery = '';
+
+searchDevices(): void {
+  if (!this.searchQuery.trim()) {
+    this.loadDevices();
+    return;
+  }
+  this.deviceService.searchDevices(this.searchQuery).subscribe(data => {
+    this.devices = data;
+  });
+}
+
+clearSearch(): void {
+  this.searchQuery = '';
+  this.loadDevices();
+}
+
   assignDevice(deviceId: string): void {
     if (!this.currentUserId) return;
     this.deviceService.assignDevice(deviceId, this.currentUserId).subscribe(() => {

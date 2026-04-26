@@ -41,4 +41,7 @@ export class DeviceService {
   generateDescription(device: Device): Observable<{ description: string }> {
   return this.http.post<{ description: string }>(`${this.apiUrl}/GenerateDescription`, device);
   }
+  searchDevices(query: string): Observable<Device[]> {
+  return this.http.get<Device[]>(`${this.apiUrl}/Search?query=${query}`);
+}
 }

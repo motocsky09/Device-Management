@@ -30,6 +30,19 @@ h1{
 	border-radius: 4px;
 	cursor: pointer;
 }
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 8px;
+  border: 1px solid #381932;
+  border-radius: 4px;
+  width: 350px;
+}
 .table{
 	width: 100%;
 	border-collapse: collapse;

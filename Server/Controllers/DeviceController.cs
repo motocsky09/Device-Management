@@ -99,5 +99,43 @@ namespace Server.Controllers
             );
             return Ok(new { description });
         }
+        
+        [HttpGet]
+        [Route("Search")]
+        public ActionResult Search(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+                return Ok(_deviceRepository.GetDevices());
+
+            var tokens = query
+                .ToLower()
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(t => new string(t.Where(char.IsLetterOrDigit).ToArray()))
+                .Where(t => !string.IsNullOrEmpty(t))
+                .ToList();
+
+            var devices = _deviceRepository.GetDevices();
+
+            var scored = devices
+                .Select(device => new
+                {
+                    Device = device,
+                    Score = tokens.Sum(token =>
+                    {
+                        int score = 0;
+                        if (device.Name?.ToLower().Contains(token) == true) score += 4;
+                        if (device.Manufacturer?.ToLower().Contains(token) == true) score += 3;
+                        if (device.Processor?.ToLower().Contains(token) == true) score += 2;
+                        if (device.Ram.ToString().Contains(token)) score += 1;
+                        return score;
+                    })
+                })
+                .Where(x => x.Score > 0)
+                .OrderByDescending(x => x.Score)
+                .Select(x => x.Device)
+                .ToList();
+
+            return Ok(scored);
+        }
     }
 }
